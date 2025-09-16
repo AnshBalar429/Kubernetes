@@ -1,24 +1,26 @@
-To create a cluster 
+# Cluster Management with Kind
 
-```
+### Create a Cluster
+```bash
 kind create cluster --config .\clusters.yml --name local
 ```
 
-To delete the cluster
-
-```
+### Delete the Cluster
+```bash
 kind delete cluster -n local
 ```
 
-Credentials are stored in 
-
-```cat ~/.kube/config```
-
-this file from where kubectl will pick and authorise to talk to cluster
-
-
+### Credentials
+Credentials are stored in:
+```bash
+cat ~/.kube/config
 ```
+This is the file from which `kubectl` will pick and authorize access to the cluster.
+
+### Verify
+List pods:
+```bash
 kubectl get pods
 ```
 
-Watch the command by ```-w``` flag
+Watch the command with the `-w` flag.
