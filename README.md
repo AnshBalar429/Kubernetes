@@ -1,1 +1,1 @@
-#### A reference repo containtaining kubernetes concepts and learnings.
+#### A reference repo containing kubernetes concepts and learnings.
