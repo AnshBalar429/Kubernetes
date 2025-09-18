@@ -15,7 +15,7 @@ This shows all the pods running in the **default namespace**.
 
 ## Create a Namespace
 ```bash
-k create namespace numerator-namespace
+k create namespace dev-ns
 ```
 ```bash
 k apply -f Namespace.yml
@@ -26,14 +26,14 @@ You can also add the namespace in the metadata of a `pod.yml` manifest file.
 
 ## View Pods in a Namespace
 ```bash
-k get pods -n numerator-namespace
+k get pods -n dev-ns
 ```
 
 ---
 
 ## Set Namespace Context
 ```bash
-k config set-context --current --namespace=numerator-namespace
+k config set-context --current --namespace=dev-ns
 ```
 
 ---
@@ -46,7 +46,7 @@ k config set-context --current --namespace=default
 
 ## Delete a Namespace
 ```bash
-k delete namespace numerator-namespace
+k delete namespace dev-ns
 ```
 ```bash
 k delete -f Namespace.yml
