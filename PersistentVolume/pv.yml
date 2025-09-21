@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: my-local-pv
+spec:
+  capacity:
+    storage: 1Gi # Specifies the size of the volume
+  accessModes:
+    - ReadWriteOnce # Can be mounted by a single node
+  storageClassName: "manual" # A name to link this PV to a PVC
+  persistentVolumeReclaimPolicy: Retain # What to do with the volume after the claim is released
+  hostPath:
+    path: "/mnt/data" # The actual storage location on the host machine
