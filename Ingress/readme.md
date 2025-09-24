@@ -1,4 +1,8 @@
 ### Ingress in Kubernetes
+
+![Ingress](image.png)
+
+
 #### The Two Parts of Ingress
 For Ingress to work, you need two components:
 
