@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-webapp-pod
+spec:
+  # The main application container
+  containers:
+  - name: webapp-container
+    image: nginx
+    ports:
+    - containerPort: 80
+
+  # The Init Container runs first
+  initContainers:
+  - name: init-check-db
+    image: busybox:1.28
+    # This command tries to resolve the DNS name of the database service.
+    # It will keep trying until it succeeds, then it will exit.
+    command: ['sh', '-c', 'until nslookup my-db-service; do echo waiting for my-db-service; sleep 2; done;']
+
