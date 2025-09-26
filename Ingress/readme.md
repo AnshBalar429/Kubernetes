@@ -8,7 +8,7 @@ For Ingress to work, you need two components:
 
 > [!NOTE]
 > **Ingress Resource:** A Kubernetes object where you define the routing rules. It's just a set of instructions, like a configuration file.
-
+>
 > **Ingress Controller:** An actual application (a Pod running a proxy like Nginx, HAProxy, or Traefik) that runs in your cluster. It reads the Ingress resource's rules and actually implements them by configuring the proxy to route traffic.
 
 You must have an Ingress Controller running in your cluster; creating an Ingress resource by itself does nothing.
