@@ -16,10 +16,10 @@ spec:
         - name: nginx
           image: nginx:latest
           resources:
-            requests:
+            requests: # minimum amount of resources a container is guaranteed to get.
               memory: "64Mi"
               cpu: "250m"
-            limits:
+            limits: # the maximum amount of resources a container is allowed to use
               memory: "128Mi"
               cpu: "500m"
           ports:
