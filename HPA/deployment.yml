@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cpu-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cpu-app
+  template:
+    metadata:
+      labels:
+        app: cpu-app
+    spec:
+      containers:
+        - name: cpu-app
+          image: nginx
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "100m"     # the pod will require minimum of 100 milicores of the cpu to start
+              memory: "128Mi" # the pod will require a minimum of 128Mi memory to start
+            limits:
+              cpu: "300m"     # the pod will maximum attain 300 milicores of the cpu it is its limit.
+              memory: "256Mi" # the pod will be limited to a maximum of 256Mi memory
+
+# 1000m (milicores) = 1 cpu core = 1 vCPU
