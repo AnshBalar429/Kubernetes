@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-backend
+  template:
+    metadata:
+      name: backend-container
+      labels:
+        app: my-backend
+    spec:
+      containers:
+        - name: todo-backend
+          image: anshkumar429/cm-image:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: port
+                  name: backend-configmap
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  key: database_url
+                  name: backend-secret
