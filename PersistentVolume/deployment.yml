@@ -16,7 +16,7 @@ spec:
         - name: my-container
           image: nginx
           volumeMounts:
-            - mountPath: "/user/share/nginx/html" # The path inside the container
+            - mountPath: "/usr/share/nginx/html" # The path inside the container
               name: my-storage # A reference to the volume definition below
       volumes:
         - name: my-storage # The name for the volume
