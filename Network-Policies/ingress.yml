@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: backend-policy
+  namespace: default
+spec:
+  # Apply this policy to pods labeled 'app: backend'
+  podSelector:
+    matchLabels:
+      app: backend
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    # Allow traffic from pods that match this selector
+    - podSelector:
+        matchLabels:
+          app: frontend
+    # ...and only on this specific port
+    ports:
+    - protocol: TCP
+      port: 8080
