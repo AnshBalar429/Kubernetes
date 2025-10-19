@@ -1,0 +1,15 @@
+# This is the most basic "lockdown" policy. It selects all pods in the 
+# default namespace and applies an ingress policy that allows no traffic.
+
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-ingress
+  namespace: default
+spec:
+  # Apply this policy to ALL pods in the 'default' namespace
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  # The 'ingress' list is empty, which means NO ingress traffic is allowed.
+  ingress: []
